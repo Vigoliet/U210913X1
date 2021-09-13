@@ -1,0 +1,16 @@
+
+Fundera på domänmodellen, dvs vilka klasser som behövs och vilka properties. Skriv gärna ner det i en textfil, så du har lite "kladdpapper".
+
+Vi bygger en enkel applikation för att hantera försäljning av begagnade bilar. 
+Funktionerna som behöver stödjas är: 
+1/registrera en bil för försäljning
+2/redigera uppgifterna för en befintlig bil
+3/ta bort en bil som blivit såld
+4/visa alla bilar som är till salu
+
+Tips:
+Console-applikation med en loop och följande menyalternativ. Använda en switch för detta, se länken nedan.
+X = Exit, N=Add Car, E=Edit existing Car, D=Remove Car, S=Show all cars
+
+
+Domänmodell: Car {Modell, Färg, Pris, Årsmodell}
