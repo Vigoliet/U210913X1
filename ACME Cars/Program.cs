@@ -21,7 +21,7 @@ namespace ACME_Cars
                         Console.Clear();        
                         break;
 
-                    case "n":
+                    case "n":   // Skapa en ny bil
                         Console.WriteLine("Skriv modell på bilen:");
                         string model = Console.ReadLine();
 
@@ -33,18 +33,46 @@ namespace ACME_Cars
 
                         Console.WriteLine("Mata in årsmodellen på bilen:");
                         string yearmodel = Console.ReadLine();
-
+                        
                         allCars.Add(new Car() { Model = model, Color = color, Price = price, YearModel = yearmodel });
+                        Console.Clear();
+
                         break;
 
                     case "e":
                         break;
 
-                    case "d":
+                    case "d":   // remove car
+                        Console.WriteLine("Dessa bilar finns för tillfället:");
+                        foreach (Car c in allCars) 
+                        {
+                            Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
+                        }
+                        //string i = Console.ReadLine(); //måste konvertera string till int senare
+                        Console.WriteLine("Skriv in list nummer på bil du vill ta bort från listan");
+                        int i = Convert.ToInt32(Console.ReadLine());
+                        allCars.RemoveAt(i-1);
+                        Console.WriteLine("================");
+                        foreach (Car c in allCars)
+                        {
+                            Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
+                        }
+
                         break;
 
-                    case "s":
+                    case "s":   // Lista över alla bilar
+                        foreach (Car c in allCars)
+                        {
+                            Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
+                        }
+                        Console.Clear();
                         break;
+
+                    default:
+                        Console.WriteLine("Skriv in rätt bokstav, testa med en liten bokstav!");
+                        Console.Clear();
+                        break;
+                        
 
                 }
 
