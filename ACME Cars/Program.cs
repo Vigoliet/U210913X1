@@ -13,7 +13,7 @@ namespace ACME_Cars
             
             while (true)
             {
-                Console.WriteLine("X = Exit, N=Add Car, E=Edit existing Car, D=Remove Car, S=Show all cars");
+                Console.WriteLine("X = Exit, N=Add Car, E=Edit existing Car, D=Remove Car, S=Show all cars"); //meny
                 string alternatives = Console.ReadLine();
                 switch (alternatives)
                 {
@@ -49,48 +49,46 @@ namespace ACME_Cars
                         allCars.RemoveAt(x - 1);
                         // input för att välja hur den redigerade bilen ska se ut
 
-                        Console.WriteLine("Skriv modell på bilen:");
-                        string redmodel = Console.ReadLine();
+                        Console.WriteLine("Skriv modell på bilen:"); 
+                        string editedmodel = Console.ReadLine();
                         
                         Console.WriteLine("Vilken färg har bilen?:");
-                        string redcolor = Console.ReadLine();
+                        string editedcolor = Console.ReadLine();
 
                         Console.WriteLine("Hur mycket kostar bilen?:");
-                        string redprice = Console.ReadLine();
+                        string editedprice = Console.ReadLine();
 
                         Console.WriteLine("Mata in årsmodellen på bilen:");
-                        string redyearmodel = Console.ReadLine();
-
-                        //allCars.Add(new Car() { Model = redmodel, Color = redcolor, Price = redprice, YearModel = redyearmodel });
-
+                        string editedyearmodel = Console.ReadLine();
                         
-                        allCars.Insert(x-1, new Car() { Model = redmodel, Color = redcolor, Price = redprice, YearModel = redyearmodel});
+                        allCars.Insert(x-1, new Car() { Model = editedmodel, Color = editedcolor, Price = editedprice, YearModel = editedyearmodel}); 
+                        // byter ut den gamla bilen med dessa nya paramterar
 
                         break;
 
                     case "d":   // remove car med hjälp av användarens input
                         Console.WriteLine("Dessa bilar finns för tillfället:");
-                        foreach (Car c in allCars) 
+                        foreach (Car c in allCars) // Lista över alla bilar (skriver ut all bilar)
                         {
                             Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
+                            Console.WriteLine("==========================");
                         }
-                                                                                                         //string i = Console.ReadLine(); //måste konvertera string till int senare
+                                                                                                         
                         Console.WriteLine("Skriv in listnummer på bil du vill ta bort från listan (positivt heltal)");
 
                         int i = Convert.ToInt32(Console.ReadLine());
 
-                        allCars.RemoveAt(i-1);    
-                                                                                                        // uppstår problem när användaren inmatar negativa tal och 0, då det skapar negativa index nummer.
-                        Console.WriteLine("================");
-
+                        allCars.RemoveAt(i-1);    // uppstår problem när användaren inmatar negativa tal och 0, då det skapar negativa index nummer.
+                                                       
                         foreach (Car c in allCars)
                         {
                             Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
                         }
+                        Console.Clear();
 
                         break;
 
-                    case "s":   // Lista över alla bilar
+                    case "s":   // Lista över alla bilar (skriver ut all bilar)
                         foreach (Car c in allCars)
                         {
                             Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
@@ -99,7 +97,7 @@ namespace ACME_Cars
 
                     default:
                         Console.WriteLine("Skriv in rätt bokstav, testa med en liten bokstav!");
-                        Console.Clear();
+
                         break;
                         
 
