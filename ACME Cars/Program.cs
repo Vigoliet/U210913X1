@@ -39,20 +39,26 @@ namespace ACME_Cars
 
                         break;
 
-                    case "e":
+                    case "e": // Edit list kommer behöva ändra 1an till en int som användaren bestämmer
+
+                        allCars.Insert(1, new Car() { Model = "Audi", Color = "Blue", Price = "2000k", YearModel = "2020"});
                         break;
 
-                    case "d":   // remove car
+                    case "d":   // remove car med hjälp av användarens input
                         Console.WriteLine("Dessa bilar finns för tillfället:");
                         foreach (Car c in allCars) 
                         {
                             Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
                         }
-                        //string i = Console.ReadLine(); //måste konvertera string till int senare
-                        Console.WriteLine("Skriv in list nummer på bil du vill ta bort från listan");
+                                                                                                         //string i = Console.ReadLine(); //måste konvertera string till int senare
+                        Console.WriteLine("Skriv in listnummer på bil du vill ta bort från listan (positivt heltal)");
+
                         int i = Convert.ToInt32(Console.ReadLine());
-                        allCars.RemoveAt(i-1);
+
+                        allCars.RemoveAt(i-1);    
+                                                                                                        // uppstår problem när användaren inmatar negativa tal och 0, då det skapar negativa index nummer.
                         Console.WriteLine("================");
+
                         foreach (Car c in allCars)
                         {
                             Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
@@ -65,7 +71,6 @@ namespace ACME_Cars
                         {
                             Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
                         }
-                        Console.Clear();
                         break;
 
                     default:
