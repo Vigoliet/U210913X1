@@ -40,8 +40,32 @@ namespace ACME_Cars
                         break;
 
                     case "e": // Edit list kommer behöva ändra 1an till en int som användaren bestämmer
+                        foreach (Car c in allCars)
+                        {
+                            Console.WriteLine($"{c.Model} {c.Color} {c.Price} {c.YearModel}");
+                        }
+                        Console.WriteLine("Vilken bil vill du redigera? (Positiva Heltal)");
+                        int x = Convert.ToInt32(Console.ReadLine());
+                        allCars.RemoveAt(x - 1);
+                        // input för att välja hur den redigerade bilen ska se ut
 
-                        allCars.Insert(1, new Car() { Model = "Audi", Color = "Blue", Price = "2000k", YearModel = "2020"});
+                        Console.WriteLine("Skriv modell på bilen:");
+                        string redmodel = Console.ReadLine();
+                        
+                        Console.WriteLine("Vilken färg har bilen?:");
+                        string redcolor = Console.ReadLine();
+
+                        Console.WriteLine("Hur mycket kostar bilen?:");
+                        string redprice = Console.ReadLine();
+
+                        Console.WriteLine("Mata in årsmodellen på bilen:");
+                        string redyearmodel = Console.ReadLine();
+
+                        //allCars.Add(new Car() { Model = redmodel, Color = redcolor, Price = redprice, YearModel = redyearmodel });
+
+                        
+                        allCars.Insert(x-1, new Car() { Model = redmodel, Color = redcolor, Price = redprice, YearModel = redyearmodel});
+
                         break;
 
                     case "d":   // remove car med hjälp av användarens input
